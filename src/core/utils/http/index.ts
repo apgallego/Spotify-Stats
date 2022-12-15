@@ -1,7 +1,4 @@
-const clientId = import.meta.env.VITE_CLIENT_ID;
-const clientSecret = import.meta.env.VITE_CLIENT_SECRET;
-
-export async function __getToken(clientId: string, clientSecret: string) {
+export const __getToken = async (clientId: string, clientSecret: string) => {
     const result = await fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
         headers: {
@@ -16,7 +13,7 @@ export async function __getToken(clientId: string, clientSecret: string) {
 }
 
 
-export async function __getCategories(token: string) {
+export const __getCategories = async (token: string) => {
     const result = await fetch(
         `https://api.spotify.com/v1/browse/categories`,
         {
